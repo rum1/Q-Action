@@ -2,6 +2,7 @@ package controller;
 
 import model.BoardGame;
 import model.Computer;
+import model.Game;
 
 /* Command line controller class in which the
  * game will essentially run on. 
@@ -23,7 +24,7 @@ public class CmdController{
 	private char typeBoardSize;
 	
 	public void CmdController(){
-		rows = 0;
+		rows = 1;
 		cols = 0;
 		dimensions = 0;
 		playerName = 0; 
