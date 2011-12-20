@@ -25,7 +25,7 @@ public class CmdController{
 	private char typeBoardSize;
 	
 	public void CmdController(){
-		rows = 1;
+		rows = 0;
 		cols = 0;
 		dimensions = 0;
 		playerName = 0; 
