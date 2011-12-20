@@ -3,6 +3,7 @@ package controller;
 import model.BoardGame;
 import model.Computer;
 import model.Game;
+import view.CommandLine;
 
 /* Command line controller class in which the
  * game will essentially run on. 
