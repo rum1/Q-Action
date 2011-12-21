@@ -41,7 +41,7 @@ public class MVC {
         cmdController.getInputs();
         cmdController.calcDimensions();
         
-        cmdLine.setCommand();
+        //cmdLine.setCommand();
         String command = cmdLine.getCommand();
         cmdController.cmdHandler(command);
         
