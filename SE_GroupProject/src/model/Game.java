@@ -40,7 +40,7 @@ public class Game {
             if(x instanceof HumanPlayer)
                 if(humanPlyrName.equalsIgnoreCase(((HumanPlayer)x).getPlayerName())){
                     humanPlyrsID = (HumanPlayer)x;
-                    counter++; 
+                    //counter++; 
                 }
                 compPlyrsID = (Computer)players.get(counter+1);
         }
