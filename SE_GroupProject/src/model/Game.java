@@ -28,7 +28,22 @@ public class Game {
         scoreLine = new Score();
         die = new Die();
         players = new ArrayList<Player>();
+<<<<<<< HEAD
 
+=======
+    }
+    
+    public void setPlayerID(){
+        int counter =0; 
+        for(Player x : players){
+            if(x instanceof HumanPlayer)
+                if(humanPlyrName.equalsIgnoreCase(((HumanPlayer)x).getPlayerName())){
+                    humanPlyrsID = (HumanPlayer)x;
+                    //counter++; 
+                }
+                compPlyrsID = (Computer)players.get(counter+1);
+        }
+>>>>>>> backupBranch
     }
     
     public void save(){
