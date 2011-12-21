@@ -28,9 +28,6 @@ public class Game {
         scoreLine = new Score();
         die = new Die();
         players = new ArrayList<Player>();
-<<<<<<< HEAD
-
-=======
     }
     
     public void setPlayerID(){
@@ -39,11 +36,10 @@ public class Game {
             if(x instanceof HumanPlayer)
                 if(humanPlyrName.equalsIgnoreCase(((HumanPlayer)x).getPlayerName())){
                     humanPlyrsID = (HumanPlayer)x;
-                    //counter++; 
+                    counter++; 
                 }
                 compPlyrsID = (Computer)players.get(counter+1);
         }
->>>>>>> backupBranch
     }
     
     public void save(){
@@ -84,6 +80,7 @@ public class Game {
     public void end(){
         
     }
+	
     public void move(int x, int y){
         //int x += die.getNumberRolled()
                 
@@ -99,22 +96,6 @@ public class Game {
     }
     
 
-
-    public void cmdHandler(String cmd){
-         switch(cmd){
-            case "start":
-                     start();
-                     break;
-            case "move":
-                     move(0,0);
-                     break;
-
-
-
-        }
-
-
-    }
 
 
     public void addPlayer(Player aPlayer, String name){
