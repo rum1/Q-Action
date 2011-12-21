@@ -1,6 +1,8 @@
-package model;
 
-/*
+import model.*;
+
+
+/*s
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -9,14 +11,16 @@ package model;
  *
  * @author Rushi
  */
-public abstract class Player {
+public class Player{
     private int gamesPlayed;
     private int gamesWon;
     private int gamesLost;
     private int timespent;
+    private int score;
     private int token;
     private Score playerScore;
 
+    
     public int getGamesLost() {
         return gamesLost;
     }
@@ -53,6 +57,10 @@ public abstract class Player {
 
     public void setToken(int token) {
         this.token = token;
+    }
+    
+    public void getScore(){
+        playerScore.calcScores();
     }
     
     

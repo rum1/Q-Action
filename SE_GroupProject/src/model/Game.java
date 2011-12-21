@@ -20,7 +20,7 @@ public class Game {
     private ArrayList<Player> players;
     
     private Player player;
-    private Manual manual; 
+    //private Manual manual; 
     
     private HumanPlayer humanPlyrsID; 
     private Computer compPlyrsID; 
@@ -47,6 +47,25 @@ public class Game {
     }
     
     public void save(){
+
+        //for(int i=0; i<humanPlayers.size(); i++)
+            String humName = humanPlyrsID.getPlayerName();
+            int humPos = humanPlyrsID.getToken();
+            int humScore = humanPlyrsID.getScore();
+            int comPos = compPlyrsID.getToken();
+            int comScore =compPlyrsID.getScore();
+        
+        String filename = name+".txt";
+        try {   
+            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
+            BufferedWriter out = new BufferedWriter(writer);
+            out.write(stringName+"\r\n"+stringPos+"\r\n"+stringScore+"\r\n"+stringComPos+"\r\n"+stringComScore);
+            //out.write("hello");
+            out.close();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "this is an error");
+        }
+
        
 //        for(int i=0; i<humanPlayers.size(); i++)
 //            String string = string+humanPlayers.get(i)+","+cpuPlayers.get(i)+";";
@@ -61,6 +80,7 @@ public class Game {
 //        } catch (IOException e) {
 //            JOptionPane.showMessageDialog(null, "this is an error");
 //        }
+
     }
     public void load(String fileName){
 //        ArrayList<String> saves = new ArrayList<String>();
@@ -103,6 +123,8 @@ public class Game {
     
     public void roll(){
         die.roll();
+        if(die.getNumberRolled()==die.getNumberOfSides())
+            new Score(10);
     }
     public void move(int x, int y){
         
