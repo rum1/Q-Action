@@ -52,13 +52,13 @@ public class Die {
         if(numberRolled<0||numberRolled>this.getNumberOfSides()){
             throw new IllegalArgumentException("Must be a number between 1 and "+ this.getNumberOfSides());
         }
-        else {
+        {
             this.numberRolled = numberRolled;
         }
     }
 
     public void roll(){
-        numberRolled  = (int)(1+(Math.random() * numberOfSides));
+        this.setNumberRolled((int)(this.getNumberOfSides()*Math.random())+1);
     }
     
 

@@ -9,22 +9,17 @@ package model;
  *
  * @author Rushi
  */
-public class HumanPlayer extends Player{
-
+public class HumanPlayer {
     private String name;
     
-
     public HumanPlayer(String playerName){
-          name = playerName;
+        this.name=playerName;
     }
-
-
     public void setPlayerName(String name){
-         this.name = name;
+        
     }
-    
-    public String getPlayerName(){
-        return name;
+    public void getPlayerName(){
+        
     }
 }
 
