@@ -31,19 +31,23 @@ public class Game {
     }
     
     public void save(){
-//        for(int i=0; i<humanPlayers.size(); i++)
-//            String string = string+humanPlayers.get(i)+","+cpuPlayers.get(i)+";";
-//        
-//        String filename = "save.txt";
-//        try {   
-//            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
-//            BufferedWriter out = new BufferedWriter(writer);
-//            out.write(string+"\r\n");
-//            //out.write("hello");
-//            out.close();
-//        } catch (IOException e) {
-//            JOptionPane.showMessageDialog(null, "this is an error");
-//        }
+        //for(int i=0; i<humanPlayers.size(); i++)
+            String stringName = "";
+            String stringPos;
+            String stringScore;
+            String stringComPos;
+            String stringComScore;
+        
+        String filename = name+".txt";
+        try {   
+            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
+            BufferedWriter out = new BufferedWriter(writer);
+            out.write(stringName+"\r\n"+stringPos+"\r\n"+stringScore+"\r\n"+stringComPos+"\r\n"+stringComScore);
+            //out.write("hello");
+            out.close();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "this is an error");
+        }
     }
     public void load(){
 //        ArrayList<String> saves = new ArrayList<String>();
