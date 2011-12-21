@@ -13,21 +13,37 @@ import java.util.ArrayList;
  */
 public class Game {
    // private Manual manualAccess;
+    private Game game;
     private BoardGame board;
     private Score scoreLine;
     private Die die;
-    private ArrayList<HumanPlayer> humanPlayers;
-    private ArrayList<Computer> cpuPlayers;
+    private ArrayList<Player> players;
+    
     private Player player;
     
     public Game(){
        // manualAccess = new Manual();
+
         board = new BoardGame();
         scoreLine = new Score();
         die = new Die();
-        humanPlayers = new ArrayList<HumanPlayer>();
-        cpuPlayers = new ArrayList<Computer>();
-        //player = new Player();
+        players = new ArrayList<Player>();
+<<<<<<< HEAD
+
+=======
+    }
+    
+    public void setPlayerID(){
+        int counter =0; 
+        for(Player x : players){
+            if(x instanceof HumanPlayer)
+                if(humanPlyrName.equalsIgnoreCase(((HumanPlayer)x).getPlayerName())){
+                    humanPlyrsID = (HumanPlayer)x;
+                    //counter++; 
+                }
+                compPlyrsID = (Computer)players.get(counter+1);
+        }
+>>>>>>> backupBranch
     }
     
     public void save(){
@@ -65,6 +81,7 @@ public class Game {
 //        }
     }
     public void start(){
+         game = new Game();
         //this.drawBoard(board, humanPlayers, cpuPlayers);
         //for(ArrayList<HumanPlayer> i: humanPlayer)
     }
@@ -81,14 +98,35 @@ public class Game {
     public void bump(){
         //if(humanPlayer.get(i))
     }
-    public ArrayList<HumanPlayer> getHumanPlayer(){
-        return humanPlayers;
+    public ArrayList<Player> getPlayer(){
+        return players;
     }
+    
+
+
     public void cmdHandler(String cmd){
-        
+         switch(cmd){
+            case "start":
+                     start();
+                     break;
+            case "move":
+                     move(0,0);
+                     break;
+
+
+
+        }
+
+
     }
-    public void setHumanPlayer(){
-       // humanPlayers.add()
+
+
+    public void addPlayer(Player aPlayer, String name){
+        aPlayer = new HumanPlayer(name);
+        players.add(player);
+        aPlayer = new Computer();
+        players.add(player);
+
     }
     
             
