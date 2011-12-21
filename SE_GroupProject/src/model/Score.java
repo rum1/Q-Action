@@ -12,11 +12,21 @@ package model;
 public class Score {
     private double finishTime;
     private int bumpNumber;
+    private int collectDieSpecial;
     private int currentPoints;
     
     public Score(){
     
     }
+    
+    public Score(int bonus){
+        collectDieSpecial = bonus;
+    }
+    
+    public void setPoints(){
+        currentPoints += (bumpNumber*5)-finishTime + collectDieSpecial;
+    }
+    
     
     public Score(int finishTime, int bumpNumber){
         this.finishTime = finishTime;

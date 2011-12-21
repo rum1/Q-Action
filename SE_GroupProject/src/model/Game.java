@@ -20,17 +20,18 @@ public class Game {
     private ArrayList<Player> players;
     
     private Player player;
+    //private Manual manual; 
+    
+    private HumanPlayer humanPlyrsID; 
+    private Computer compPlyrsID; 
+    private String humanPlyrName; 
     
     public Game(){
        // manualAccess = new Manual();
-
         board = new BoardGame();
         scoreLine = new Score();
-        die = new Die();
+        die = new Die(); 
         players = new ArrayList<Player>();
-<<<<<<< HEAD
-
-=======
     }
     
     public void setPlayerID(){
@@ -43,16 +44,16 @@ public class Game {
                 }
                 compPlyrsID = (Computer)players.get(counter+1);
         }
->>>>>>> backupBranch
     }
     
     public void save(){
+
         //for(int i=0; i<humanPlayers.size(); i++)
-            String stringName = "";
-            String stringPos;
-            String stringScore;
-            String stringComPos;
-            String stringComScore;
+            String humName = humanPlyrsID.getPlayerName();
+            int humPos = humanPlyrsID.getToken();
+            int humScore = humanPlyrsID.getScore();
+            int comPos = compPlyrsID.getToken();
+            int comScore =compPlyrsID.getScore();
         
         String filename = name+".txt";
         try {   
@@ -64,8 +65,24 @@ public class Game {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "this is an error");
         }
+
+       
+//        for(int i=0; i<humanPlayers.size(); i++)
+//            String string = string+humanPlayers.get(i)+","+cpuPlayers.get(i)+";";
+//        
+//        String filename = "save.txt";
+//        try {   
+//            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
+//            BufferedWriter out = new BufferedWriter(writer);
+//            out.write(string+"\r\n");
+//            //out.write("hello");
+//            out.close();
+//        } catch (IOException e) {
+//            JOptionPane.showMessageDialog(null, "this is an error");
+//        }
+
     }
-    public void load(){
+    public void load(String fileName){
 //        ArrayList<String> saves = new ArrayList<String>();
 //        String filename = "save.txt";
 //        try {
@@ -80,15 +97,37 @@ public class Game {
 //        	e.printStackTrace();
 //        }
     }
-    public void start(){
-         game = new Game();
+    
+    
+    
+    public void start(String name){
+         
+        humanPlyrName = name;
+        game = new Game();
+         
+         int count =0; 
+         
+         players.add(new HumanPlayer(name));
+         players.add(new Computer());
+         
+         players.get(0).setToken(0);
+         players.get(1).setToken(0);
+         
+         
         //this.drawBoard(board, humanPlayers, cpuPlayers);
         //for(ArrayList<HumanPlayer> i: humanPlayer)
     }
-    public void end(){
+    public void quit(){
         
     }
+    
+    public void roll(){
+        die.roll();
+        if(die.getNumberRolled()==die.getNumberOfSides())
+            new Score(10);
+    }
     public void move(int x, int y){
+        
         //int x += die.getNumberRolled()
                 
     }
@@ -104,22 +143,13 @@ public class Game {
     
 
 
-    public void cmdHandler(String cmd){
-         switch(cmd){
-            case "start":
-                     start();
-                     break;
-            case "move":
-                     move(0,0);
-                     break;
 
+    
 
-
-        }
+    public void pause(){
 
 
     }
-
 
     public void addPlayer(Player aPlayer, String name){
         aPlayer = new HumanPlayer(name);
@@ -127,6 +157,15 @@ public class Game {
         aPlayer = new Computer();
         players.add(player);
 
+    }
+
+    public void resume() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    public void manCaller(String command, int length) {
+        manual = new Manual(command, length); 
+        
     }
     
             

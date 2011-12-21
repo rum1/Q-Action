@@ -63,7 +63,7 @@ public class CommandLine {
     }
 
     public void setSizeType(){
-        System.out.println("Whats size of the board do you want?");
+        System.out.println("Would you like to use the default board size (10X10)");
         sizeType = scan.nextLine();
     }
 
@@ -75,7 +75,7 @@ public class CommandLine {
 
 
     public String getCommand(){
-        return this.command;
+        return command;
     }
 
     public void showResults(String results){
@@ -84,7 +84,7 @@ public class CommandLine {
 
 
     public void setDimensions(){
-        System.out.println("What's the size of the dimension you in place on the board game?");
+        System.out.println("What's the size of the board dimension do you want (rowXcolumn e.g (12X12)?");
         dimensions = scan.nextLine();
     }
 
@@ -96,8 +96,10 @@ public class CommandLine {
         return this.sizeType;
     }
 
-    public void setBoardType(){
-        System.out.println("Would you like to use the default board size?(10X10)");
-        sizeType = scan.nextLine();
+    
+    public void cmdError(String err){
+        System.out.println (err);
+    
     }
+    
 }
