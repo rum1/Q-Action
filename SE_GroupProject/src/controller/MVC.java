@@ -19,12 +19,6 @@ public class MVC {
     public static void main(String[]args){
         cmdLine = new CommandLine();
         cmdLine.setName();
-<<<<<<< HEAD
-
-
-
-
-=======
         cmdLine.welcomeMessage();
         cmdLine.setReady();
         cmdLine.setSizeType();
@@ -36,11 +30,9 @@ public class MVC {
         cmdController.getInputs();
         cmdController.calcDimensions();
         
-        //cmdLine.setCommand();
+        cmdLine.setCommand();
         String command = cmdLine.getCommand();
         cmdController.cmdHandler(command);
-        
-        
->>>>>>> backupBranch
+       
     }
 }
