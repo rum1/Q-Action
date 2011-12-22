@@ -21,7 +21,7 @@ public class CmdController{
 	private String readyToStart;
 	private String playerName;
 	private String typeBoardSize;
-        private String[] commands = {"start","quit", "save", "pause", "re{sume", "load", "roll", "move", "man"};
+        private String[] commands = {"start","quit", "save", "pause", "resume", "load", "roll", "move", "man"};
         private String sizeType;
 
 	public CmdController(Game game, CommandLine cmdLine){
@@ -64,8 +64,10 @@ public class CmdController{
         String instruction = cmd.trim(); 
         String[]results = instruction.split(" ");
         
-         if(results[0].equalsIgnoreCase(commands[0]))
-             game.start(cmdLine.getName(), rows, cols); 
+         if(results[0].equalsIgnoreCase(commands[0])){
+             cmdLine.startGame();
+             game.start(cmdLine.getName(), rows, cols);
+         }
         else if(results[0].equalsIgnoreCase(commands[1]))
              game.quit(); 
         //else if(results[0].equalsIgnoreCase(commands[2]))
