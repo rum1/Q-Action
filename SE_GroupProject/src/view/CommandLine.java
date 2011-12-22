@@ -16,14 +16,13 @@ public class CommandLine {
 
     private Scanner scan;
     //private int noOfSides;
-    private String ready,sizeType, dimensions, command, name, exit;
+    private String sizeType, dimensions, command, name, exit;
 
     public CommandLine() {
-    scan = new Scanner(System.in);
-    name = "";
-    dimensions = "";
-    command = "";
-    
+        scan = new Scanner(System.in);
+        name = "";
+        dimensions = "";
+        command = "";    
     }
 
 
@@ -51,25 +50,19 @@ public class CommandLine {
     public String getExit(){
         return this.exit;
     }
-  
-   
-    public void setReady(){
-        System.out.println("Are you ready to play? (y/n)");
-        ready = scan.nextLine();
-    }
-
-    public String getReady(){
-        return ready;
-    }
 
     public void setSizeType(){
         System.out.println("Would you like to use the default board size (10X10)");
         sizeType = scan.nextLine();
     }
+    
+    public void startMessage(){
+        System.out.println("Type in a command to play the game. \n For list of commands, you can check the manual using the 'man' command");
+    }
 
 
     public void setCommand(){
-        System.out.println("Type in a command to play the game. \n For list of commands, you can check the manual using the 'man' command");
+        System.out.print("Q> ");
         command = scan.nextLine();
     }
 
@@ -95,11 +88,14 @@ public class CommandLine {
     public String getSizeType(){
         return this.sizeType;
     }
-
     
     public void cmdError(String err){
-        System.out.println (err);
-    
+        System.out.println (err);  
+    }
+
+    public void setDefault() {
+        dimensions = "10X10";
+        System.out.println(dimensions);
     }
     
 }

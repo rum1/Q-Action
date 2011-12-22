@@ -22,7 +22,7 @@ public class HumanPlayer extends Player{
     public void setPlayerName(String name){
          this.name = name;
     }
-    
+
     public String getPlayerName(){
         return name;
     }

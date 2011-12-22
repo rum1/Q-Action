@@ -1,5 +1,10 @@
+package model;
 
-import model.*;
+
+import model.Score;
+
+
+
 
 
 /*s
@@ -11,7 +16,7 @@ import model.*;
  *
  * @author Rushi
  */
-public class Player{
+public abstract class Player{
     private int gamesPlayed;
     private int gamesWon;
     private int gamesLost;
@@ -32,8 +37,14 @@ public class Player{
     public int getGamesWon() {
         return gamesWon;
     }
-
     
+    public void setScores(){
+        playerScore.setPoints(); 
+    }
+
+    public int getScores(){
+        return playerScore.getPoints();
+    }
 
     public int getTimespent() {
         return timespent;
@@ -58,10 +69,5 @@ public class Player{
     public void setToken(int token) {
         this.token = token;
     }
-    
-    public void getScore(){
-        playerScore.calcScores();
-    }
-    
     
 }

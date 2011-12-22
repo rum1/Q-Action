@@ -1,5 +1,6 @@
 package model;
 
+import java.io.*;
 import java.util.ArrayList;
 
 /*
@@ -46,43 +47,45 @@ public class Game {
         }
     }
     
-    public void save(){
-
-        //for(int i=0; i<humanPlayers.size(); i++)
-            String humName = humanPlyrsID.getPlayerName();
-            int humPos = humanPlyrsID.getToken();
-            int humScore = humanPlyrsID.getScore();
-            int comPos = compPlyrsID.getToken();
-            int comScore =compPlyrsID.getScore();
-        
-        String filename = name+".txt";
-        try {   
-            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
-            BufferedWriter out = new BufferedWriter(writer);
-            out.write(stringName+"\r\n"+stringPos+"\r\n"+stringScore+"\r\n"+stringComPos+"\r\n"+stringComScore);
-            //out.write("hello");
-            out.close();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "this is an error");
-        }
-
-       
-//        for(int i=0; i<humanPlayers.size(); i++)
-//            String string = string+humanPlayers.get(i)+","+cpuPlayers.get(i)+";";
+//    public void save(){
+//
+//        //for(int i=0; i<humanPlayers.size(); i++)
+//            String humName = humanPlyrsID.getPlayerName();
+//            int humPos = humanPlyrsID.getToken();
+//            int humScore = humanPlyrsID.getScores();
+//            int comPos = compPlyrsID.getToken();
+//            int comScore =compPlyrsID.getScores();
 //        
-//        String filename = "save.txt";
+//        String filename = "Uppers-and-Downers.txt";
 //        try {   
 //            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
 //            BufferedWriter out = new BufferedWriter(writer);
-//            out.write(string+"\r\n");
+//            
+//            
+//            //out.write(stringName+"\r\n"+stringPos+"\r\n"+stringScore+"\r\n"+stringComPos+"\r\n"+stringComScore);
 //            //out.write("hello");
 //            out.close();
 //        } catch (IOException e) {
 //            JOptionPane.showMessageDialog(null, "this is an error");
 //        }
-
-    }
-    public void load(String fileName){
+//
+//       
+////        for(int i=0; i<humanPlayers.size(); i++)
+////            String string = string+humanPlayers.get(i)+","+cpuPlayers.get(i)+";";
+////        
+////        String filename = "save.txt";
+////        try {   
+////            FileWriter writer = new FileWriter(filename, true); //puts text onto new line so doesnt overwrite
+////            BufferedWriter out = new BufferedWriter(writer);
+////            out.write(string+"\r\n");
+////            //out.write("hello");
+////            out.close();
+////        } catch (IOException e) {
+////            JOptionPane.showMessageDialog(null, "this is an error");
+////        }
+//
+//    }
+  //  public void load(String fileName){
 //        ArrayList<String> saves = new ArrayList<String>();
 //        String filename = "save.txt";
 //        try {
@@ -96,34 +99,36 @@ public class Game {
 //        } catch (IOException e) {
 //        	e.printStackTrace();
 //        }
-    }
+ //   }
     
     
     
-    public void start(String name){
-         
+    public void start(String name, int rows, int cols){
         humanPlyrName = name;
-        game = new Game();
+        //game = new Game();         
+        // int count =0; 
          
-         int count =0; 
-         
-         players.add(new HumanPlayer(name));
+         players.add(new HumanPlayer(humanPlyrName));
          players.add(new Computer());
          
-         players.get(0).setToken(0);
-         players.get(1).setToken(0);
+         setPlayerID();
          
+         humanPlyrsID.setToken(0);
+         compPlyrsID.setToken(0);
          
-        //this.drawBoard(board, humanPlayers, cpuPlayers);
-        //for(ArrayList<HumanPlayer> i: humanPlayer)
+         board.setBoardSize(rows,cols);
+         board.makeBoard();
     }
+    
+    
     public void quit(){
-        
+        System.exit(0);
     }
+    
     
     public void roll(){
         die.roll();
-        if(die.getNumberRolled()==die.getNumberOfSides())
+        if(die.getNumberRolled() == die.getNumberOfSides())
             new Score(10);
     }
     public void move(int x, int y){
@@ -141,13 +146,7 @@ public class Game {
         return players;
     }
     
-
-
-
-    
-
     public void pause(){
-
 
     }
 
