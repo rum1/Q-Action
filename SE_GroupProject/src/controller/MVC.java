@@ -43,6 +43,7 @@ public class MVC {
         }
         else if(type.equalsIgnoreCase("y")){
             cmdLine.setDefault();
+            cmdController.getInputs();
             cmdController.calcDimensions();
         }
         

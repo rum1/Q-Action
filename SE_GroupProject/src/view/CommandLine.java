@@ -98,4 +98,8 @@ public class CommandLine {
         System.out.println(dimensions);
     }
     
+    public void printRolled(int rolled){
+        System.out.println("You rolled "+rolled);
+    }
+    
 }
