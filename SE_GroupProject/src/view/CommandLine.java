@@ -95,7 +95,10 @@ public class CommandLine {
 
     public void setDefault() {
         dimensions = "10X10";
-        System.out.println(dimensions);
+    }
+    
+    public void startGame(){
+        System.out.println("Game has began. You go first so in order to roll the die type in the 'roll' command");
     }
     
 }
