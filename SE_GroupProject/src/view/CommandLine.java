@@ -16,14 +16,13 @@ public class CommandLine {
 
     private Scanner scan;
     //private int noOfSides;
-    private String ready,sizeType, dimensions, command, name, exit;
+    private String sizeType, dimensions, command, name, exit;
 
     public CommandLine() {
-    scan = new Scanner(System.in);
-    name = "";
-    dimensions = "";
-    command = "";
-    
+        scan = new Scanner(System.in);
+        name = "";
+        dimensions = "";
+        command = "";    
     }
 
 
@@ -51,31 +50,25 @@ public class CommandLine {
     public String getExit(){
         return this.exit;
     }
-  
-   
-    public void setReady(){
-        System.out.println("Are you ready to play? (y/n)");
-        ready = scan.nextLine();
-    }
-
-    public String getReady(){
-        return ready;
-    }
 
     public void setSizeType(){
-        System.out.println("Whats size of the board do you want?");
+        System.out.println("Would you like to use the default board size (10X10)");
         sizeType = scan.nextLine();
+    }
+    
+    public void startMessage(){
+        System.out.println("Type in a command to play the game. \n For list of commands, you can check the manual using the 'man' command");
     }
 
 
     public void setCommand(){
-        System.out.println("Type in a command to play the game. \n For list of commands, you can check the manual using the 'man' command");
+        System.out.print("Q> ");
         command = scan.nextLine();
     }
 
 
     public String getCommand(){
-        return this.command;
+        return command;
     }
 
     public void showResults(String results){
@@ -84,7 +77,7 @@ public class CommandLine {
 
 
     public void setDimensions(){
-        System.out.println("What's the size of the dimension you in place on the board game?");
+        System.out.println("What's the size of the board dimension do you want (rowXcolumn e.g (12X12)?");
         dimensions = scan.nextLine();
     }
 
@@ -95,9 +88,14 @@ public class CommandLine {
     public String getSizeType(){
         return this.sizeType;
     }
-
-    public void setBoardType(){
-        System.out.println("Would you like to use the default board size?(10X10)");
-        sizeType = scan.nextLine();
+    
+    public void cmdError(String err){
+        System.out.println (err);  
     }
+
+    public void setDefault() {
+        dimensions = "10X10";
+        System.out.println(dimensions);
+    }
+    
 }

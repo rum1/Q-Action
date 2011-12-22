@@ -44,13 +44,14 @@ public class BoardGame {
             
     }
     
-    public void makeBoard(Square [][] boardDimensions, int rows, int cols){
+    public void makeBoard(){
         for(int i =0; i<rows; i++){
             for(int k=0; k<cols; k++)
                 boardDimensions[rows][cols] = new Square();
-            
         }
     }
+    
+   
     
     
 }
