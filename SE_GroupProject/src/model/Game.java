@@ -128,8 +128,13 @@ public class Game {
     
     public void roll(){
         die.roll();
+        
         if(die.getNumberRolled() == die.getNumberOfSides())
             new Score(10);
+    }
+    
+    public int getNumberRolled(){
+        return die.getNumberRolled();
     }
     public void move(int x, int y){
         

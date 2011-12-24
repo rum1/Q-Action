@@ -23,6 +23,7 @@ public class CmdController{
 	private String typeBoardSize;
         private String[] commands = {"start","quit", "save", "pause", "resume", "load", "roll", "move", "man"};
         private String sizeType;
+        private int rolled = 0;
 
 	public CmdController(Game game, CommandLine cmdLine){
             this.game = game;
@@ -89,8 +90,13 @@ public class CmdController{
 //           }       
       //  }
         
-        else if(results[0].equalsIgnoreCase(commands[6]))
-             game.roll(); 
+        else if(results[0].equalsIgnoreCase(commands[6]) && rolled==0){
+             game.roll();
+             
+             cmdLine.printRolled(game.getNumberRolled());
+             rolled = -1;
+        }
+             
         else if(results[0].equalsIgnoreCase(commands[7]))
         {}  //game.move(); 
         
@@ -102,9 +108,15 @@ public class CmdController{
                 errMessage = "No command specified. To use man command type 'man' and the name of command in query";
                 cmdLine.cmdError(errMessage);
             }
-        else
-             System.out.println("Unknown command. To see the list of possible commands type in 'man'");
+        else{
+            if(rolled ==-1){
+                errMessage = "You have already rolled. Please move your token.";
+                cmdLine.cmdError(errMessage);
+            }
+            else
+                System.out.println("Unknown command. To see the list of possible commands type in 'man'");
         }
+    }
     
     public int getRow(){
         return rows;
