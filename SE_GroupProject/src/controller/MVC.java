@@ -43,6 +43,7 @@ public class MVC {
         }
         else if(type.equalsIgnoreCase("y")){
             cmdLine.setDefault();
+            cmdController.getInputs();
             cmdController.calcDimensions();
         }
         
@@ -59,7 +60,7 @@ public class MVC {
         
         
         //cmdLine.setCommand();
-        String command = cmdLine.getCommand();
+        //String command = cmdLine.getCommand();
         cmdController.cmdHandler(command);
         
         
