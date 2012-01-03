@@ -22,16 +22,13 @@ public class CmdController{
 	private int cols;
 	private String dimensions;
 	private String cmdEntd;
-	private char exit;
 	private int start;
-	private int playerName;
-	private char typeBoardSize;
 	
 	public void CmdController(){
 		rows = 0;
 		cols = 0;
 		dimensions = "";
-		playerName = 0; 
+		playerName = "";
 	}
 
 	private String exit;

@@ -19,6 +19,7 @@ public class Game {
     private Score scoreLine;
     private Die die;
     private ArrayList<Player> players;
+    private Manual manual;
     
     private Player player;
     //private Manual manual; 
@@ -168,7 +169,7 @@ public class Game {
     }
 
     public void manCaller(String command, int length) {
-        Manual = new Manual(command, length);
+        manual = new Manual(command, length);
         
     }
     
